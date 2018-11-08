@@ -1,0 +1,10 @@
+mysql> use gowuche;
+Database changed
+
+select * from gowuche;
+
+alter table gowuche add hobby varchar(2);
+alter table gowuche add discount varchar(20);
+alter table gowuche add yuanwang varchar(20);
+insert into gowuche (name,money,hobby,discount,yuanwang)values ('mike','100','1','0','1');
+
