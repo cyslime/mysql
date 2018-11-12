@@ -1,0 +1,36 @@
+mysql> create database work charset=utf8;
+Query OK, 1 row affected, 1 warning (0.12 sec)
+
+mysql> use work;
+Database changed
+mysql> create table soucang(useid unique primary key auto_increment not null,goods varchar(20) not null,collect
+    ->  enum('Y','N'));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unique primary key auto_increment not null,goods varchar(20) not null,collect
+ e' at line 1
+mysql> create table soucang(useid int(3) unique primary key auto_increment not null,goods varchar(20) not null,collect
+    ->  enum('Y','N'));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc soucang;
++---------+---------------+------+-----+---------+----------------+
+| Field   | Type          | Null | Key | Default | Extra          |
++---------+---------------+------+-----+---------+----------------+
+| useid   | int(3)        | NO   | PRI | NULL    | auto_increment |
+| goods   | varchar(20)   | NO   |     | NULL    |                |
+| collect | enum('Y','N') | YES  |     | NULL    |                |
++---------+---------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> insert into soucang(useid,goods,collect)values(1,'candy', 'y'),(2,'latiao','y'),(3,'ice-cream','n');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from soucang;
++-------+-----------+---------+
+| useid | goods     | collect |
++-------+-----------+---------+
+|     1 | candy     | Y       |
+|     2 | latiao    | Y       |
+|     3 | ice-cream | N       |
++-------+-----------+---------+
+3 rows in set (0.00 sec)
