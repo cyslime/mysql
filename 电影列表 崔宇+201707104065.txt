@@ -1,0 +1,61 @@
+mysql> use cuo;
+Database changed
+mysql> create table list(name varchar(20) not null,year int(5) not null,diretor varchar(10) not null,score int(5)
+    -> not null);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into list (name,year,diretor,score)values('yichuhaoxi',2018,'huangbo',8.6),('sad',2018,'gjm',7.3);
+Query OK, 2 rows affected (0.11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from list;
++------------+------+---------+-------+
+| name       | year | diretor | score |
++------------+------+---------+-------+
+| yichuhaoxi | 2018 | huangbo |     9 |
+| sad        | 2018 | gjm     |     7 |
++------------+------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select name from list where name like "%sad%";
++------+
+| name |
++------+
+| sad  |
++------+
+1 row in set (0.00 sec)
+
+mysql> select diretor from list where diretor like "%huangbo%";
++---------+
+| diretor |
++---------+
+| huangbo |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select year from list where year like "2018";
++------+
+| year |
++------+
+| 2018 |
+| 2018 |
++------+
+2 rows in set (0.00 sec)
+
+mysql> select year like '2018' from list;
++------------------+
+| year like '2018' |
++------------------+
+|                1 |
+|                1 |
++------------------+
+2 rows in set (0.00 sec)
+
+mysql> select score like '8.7' from list;
++------------------+
+| score like '8.7' |
++------------------+
+|                0 |
+|                0 |
++------------------+
+2 rows in set (0.00 sec)
