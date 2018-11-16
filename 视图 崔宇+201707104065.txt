@@ -1,0 +1,5 @@
+use gowuche;
+
+create or replace view view_c_d2 as
+
+select user.yonghu_name,equipment.equipment_name from user,equipment;
